@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Spring Boot Thymeleaf Hello World Example</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link rel="stylesheet" type="text/css"
+	href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+<link rel="stylesheet" th:href="@{/css/main.css}"
+	href="../../css/main.css" />
+
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index">Welcome</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li  class="active"><a href="directeuretudiant">Directeurs des Etudes</a></li>
+					<li><a href="directeuretablissement">Directeur Etablisement</a></li>
+					<li><a href="probleme">Problèmes</a></li>
+					<li><a href="information">Informations</a></li>	
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="starter-template">
+			<h1>Espace réservé au directeurs des études</h1>
+		</div>
+	</div>
+	<div>
+	<table border="1">
+	<h1>Liste des Etudiants</h1>
+            <tr>
+                <th>Id</th>
+                <th>Etablissemnt</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Promotion</th>
+            </tr>
+            <tr th:each="directeuretudiant : ${directeuretudiant}">
+                <td th:text="${directeuretudiant.id}"><a>Id</a></td>
+                <td th:text="${directeuretudiant.etablissement}">Etablissemnt</td>
+                <td th:text="${directeuretudiant.nom}">Nom</td>
+                <td th:text="${directeuretudiant.prenom}">Prenom</td>
+                <td th:text="${directeuretudiant.promotion}">Promotion</td>
+            </tr>
+        </table>
+	
+	</div>
+	<form method="POST" action="http://localhost:8080/probleme">
+	<input type="submit" name="Ok" value="Consulter les problèmes" ></input>
+	</form>
+	
+	<form method="POST" action="http://localhost:8080/information">
+	<input type="submit" name="Ok" value="Informer ses étudiants" ></input>
+	</form>
+	
+	<form method="POST" action="http://localhost:8080/historique">
+	<input type="submit" name="Ok" value="Historique information" ></input>
+	</form>
+	
+
+	
+	<script type="text/javascript"
+		src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>

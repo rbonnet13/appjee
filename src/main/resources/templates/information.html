@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Spring Boot Thymeleaf Hello World Example</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link rel="stylesheet" type="text/css"
+	href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+<link rel="stylesheet" th:href="@{/css/main.css}"
+	href="../../css/main.css" />
+
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index">Welcome</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="directeuretudiant">Directeurs des Etudes</a></li>
+					<li><a href="directeuretablissement">Directeur Etablisement</a></li>
+					<li class="active"><a href="information">Informations</a></li>					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="starter-template">
+			<h1>Consulter les informations</h1>
+		</div>
+	</div>
+	
+		<form action="/my-handling-form-page" method="post">
+
+	  <div>
+	    <label for="msg">Information:</label>
+	    <textarea id="msg" name="user_message"></textarea>
+	  </div>
+	 
+	  <div class="button">
+	    <button type="submit">Envoyer</button>
+	  </div>
+	</form>
+	<!-- /.container -->
+
+	<script type="text/javascript"
+		src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>

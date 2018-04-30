@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Home</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link rel="stylesheet" type="text/css"
+	href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+<link rel="stylesheet" th:href="@{/css/main.css}"
+	href="../../css/main.css" />
+<?php
+// define variables and set to empty values
+$type = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $type = test_input($_POST["type"]);
+	if($type = "Etudiant"){
+	 header('Location: home');
+  		exit();
+	}else{
+	 header('Location: directeuretudiant');
+  		exit();
+	}
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+
+?>		
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index">Welcome</a>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+
+		<div class="starter-template">
+			<h1>Bienvenue sur le site de l'ESAIP</h1>
+			<h2>Entrez les informations</h2>
+		</div>
+		<div>
+		<p><a href="http://localhost:8080/home">Etudiant</a></p>
+		<p><a href="http://localhost:8080/directeuretudiant">Directeur Etudiant</a></p>
+		<p><a href="http://localhost:8080/directeuretablissement">Directeur Etablissement</a></p>
+		</div>
+	</div>
+	<!-- /.container -->
+
+	<script type="text/javascript"
+		src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Problèmes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link rel="stylesheet" type="text/css"
+	href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+<link rel="stylesheet" th:href="@{/css/main.css}"
+	href="../../css/main.css" />
+
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index">Welcome</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="directeuretudiant">Directeurs des Etudes</a></li>
+					<li><a href="directeuretablissement">Directeur Etablisement</a></li>
+					<li class="active"><a href="probleme">Problèmes</a></li>					
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+	
+	<div class="container">
+		<div class="starter-template">
+			<h1>Consulter les problèmes</h1>
+		</div><div>
+	<table border="1">
+            <tr>
+                <th>Id</th>
+                <th>DATE</th>
+                <th>NOM</th>
+                <th>Prenom</th>
+                <th>Texte</th>
+            </tr>
+            <tr th:each="problemes : ${problemes}">
+                <td th:text="${problemes.id_probleme}"><a>Id</a></td>
+                <td th:text="${problemes.date_probleme}">Etablissemnt</td>
+                <td th:text="${problemes.nom_auteur}">Nom</td>
+                <td th:text="${problemes.prenom_auteur}">Prenom</td>
+                <td th:text="${problemes.texte_probleme}">Promotion</td>
+            </tr>
+        </table>
+	
+	</div>
+	</div>
+
+	<!-- /.container -->
+
+
+	<script type="text/javascript"
+		src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>
